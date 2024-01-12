@@ -7,7 +7,9 @@ import './styles/App.css'
 function App() {
   return (
     <>
-      <Header />
+      <header className="main-header">
+        <Header />
+      </header>
     </>
   )
 }
