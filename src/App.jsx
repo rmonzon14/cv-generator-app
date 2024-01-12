@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import Header from './components/Header'
 import PersonalInfoForm from './components/forms/PersonalInfoForm'
 import './styles/App.css'
+import PersonalInfoPreview from './Preview/PersonalInfoPreview'
 
 function App() {
   const [personalInfo, setPersonalInfo] = useState({
@@ -35,8 +36,18 @@ function App() {
         <form id="personal-info-form">
           Enter your personal info
 
-          <PersonalInfoForm value={personalInfo} onChange={handlePersonalInfoChange} />
+          <PersonalInfoForm
+            value={personalInfo}
+            onChange={handlePersonalInfoChange}
+          />
         </form>
+      </div>
+
+      <div className="preview-container">
+          <PersonalInfoPreview
+            firstName={personalInfo.firstName}
+            lastName={personalInfo.lastName}
+          />
       </div>
     </>
   )

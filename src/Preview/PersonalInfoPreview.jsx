@@ -1,7 +1,10 @@
-function PersonalInfoPreview({ name }) {
+function PersonalInfoPreview({ firstName, lastName }) {
+  const fullName = firstName + lastName;
   return (
     <div>
-      <p>{name}</p>
+      <p>{fullName}</p>
     </div>
   )
 }
+
+export default PersonalInfoPreview
