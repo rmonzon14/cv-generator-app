@@ -4,7 +4,13 @@ import viteLogo from '/vite.svg'
 import './styles/App.css'
 
 function App() {
-
+  return (
+    <>
+      <div>
+        red
+      </div>
+    </>
+  )
 }
 
 export default App
