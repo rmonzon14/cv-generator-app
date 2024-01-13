@@ -4,7 +4,7 @@ import viteLogo from '/vite.svg'
 import Header from './components/Header'
 import PersonalInfoForm from './components/forms/PersonalInfoForm'
 import './styles/App.css'
-import PersonalInfoPreview from './Preview/PersonalInfoPreview'
+import PersonalInfoPreview from './components/Preview/PersonalInfoPreview'
 
 function App() {
   const [personalInfo, setPersonalInfo] = useState({
@@ -47,6 +47,11 @@ function App() {
           <PersonalInfoPreview
             firstName={personalInfo.firstName}
             lastName={personalInfo.lastName}
+            occupation={personalInfo.occupation}
+            email={personalInfo.email}
+            phone={personalInfo.phone}
+            country={personalInfo.country}
+            city={personalInfo.city}
           />
       </div>
     </>
