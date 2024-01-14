@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import Header from './components/Header'
 import PersonalInfoForm from './components/forms/PersonalInfoForm'
+import EducationForm from './components/forms/EducationForm'
 import './styles/App.css'
 import PersonalInfoPreview from './components/Preview/PersonalInfoPreview'
 
@@ -18,12 +19,34 @@ function App() {
   }
   );
 
+  const [education, setEducation] = useState({
+    school: "",
+    location: "",
+    degree: "",
+    startDate: "",
+    endDate: "",
+    gpa: "",
+  }
+  );
+
   const handlePersonalInfoChange = (e) => {
     const { name, value } = e.target;
 
     setPersonalInfo({
       ...personalInfo, [name]: value,
     });
+  }
+
+  const handleEducationOnChange = (e) => {
+    const { name, value } = e.target;
+
+    setEducation({
+      ...education, [name]: value,
+    });
+  }
+
+  const handleEducationOnSubmit = (e) => {
+    e.preventDefault();
   }
 
   return (
@@ -38,6 +61,13 @@ function App() {
             value={personalInfo}
             onChange={handlePersonalInfoChange}
           />
+
+          <EducationForm
+            value={education}
+            onChange={handleEducationOnChange}
+            onSubmit={handleEducationOnSubmit}
+          />
+
         </div>
 
         <div className="preview-container">
