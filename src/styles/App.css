@@ -1,0 +1,24 @@
+.header-container {
+  background-color: #8aa7f1;
+  padding: 30px;
+  text-align: center;
+}
+
+#contents-container {
+  display: flex;
+  gap: 40px;
+  justify-content: space-between;
+  margin: 50px 0;
+}
+
+.forms-container {
+  flex: 40%;
+  background-color: #d0dcf9;
+  padding: 30px;
+}
+
+.preview-container {
+  flex: 60%;
+  border: solid grey 2px;
+  margin-right: 10px;
+}

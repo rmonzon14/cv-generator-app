@@ -8,13 +8,13 @@ import PersonalInfoPreview from './components/Preview/PersonalInfoPreview'
 
 function App() {
   const [personalInfo, setPersonalInfo] = useState({
-    firstName: "",
-    lastName: "",
-    occupation: "",
-    email: "",
-    phone: "",
-    country: "",
-    city: ""
+    firstName: "Red",
+    lastName: "Monzon",
+    occupation: "Web Developer",
+    email: "redkmonzon@gmail.com",
+    phone: "4313211645",
+    country: "Canada",
+    city: "Winnipeg"
   }
   );
 
@@ -32,27 +32,29 @@ function App() {
         <Header />
       </header>
 
-      <div className="forms-container">
-        <form id="personal-info-form">
-          Enter your personal info
+      <div id="contents-container">
+        <div className="forms-container">
+          <form id="personal-info-form">
+            Enter your personal info
 
-          <PersonalInfoForm
-            value={personalInfo}
-            onChange={handlePersonalInfoChange}
-          />
-        </form>
-      </div>
+            <PersonalInfoForm
+              value={personalInfo}
+              onChange={handlePersonalInfoChange}
+            />
+          </form>
+        </div>
 
-      <div className="preview-container">
-          <PersonalInfoPreview
-            firstName={personalInfo.firstName}
-            lastName={personalInfo.lastName}
-            occupation={personalInfo.occupation}
-            email={personalInfo.email}
-            phone={personalInfo.phone}
-            country={personalInfo.country}
-            city={personalInfo.city}
-          />
+        <div className="preview-container">
+            <PersonalInfoPreview
+              firstName={personalInfo.firstName}
+              lastName={personalInfo.lastName}
+              occupation={personalInfo.occupation}
+              email={personalInfo.email}
+              phone={personalInfo.phone}
+              country={personalInfo.country}
+              city={personalInfo.city}
+            />
+        </div>
       </div>
     </>
   )

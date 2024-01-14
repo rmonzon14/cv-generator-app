@@ -1,3 +1,5 @@
+import '../../styles/PersonalInfoPreview.css'
+
 function PersonalInfoPreview(
   { firstName,
     lastName,
