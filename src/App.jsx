@@ -34,14 +34,10 @@ function App() {
 
       <div id="contents-container">
         <div className="forms-container">
-          <form id="personal-info-form">
-            Enter your personal info
-
-            <PersonalInfoForm
-              value={personalInfo}
-              onChange={handlePersonalInfoChange}
-            />
-          </form>
+          <PersonalInfoForm
+            value={personalInfo}
+            onChange={handlePersonalInfoChange}
+          />
         </div>
 
         <div className="preview-container">
