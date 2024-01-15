@@ -2,10 +2,11 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import Header from './components/Header'
+import EducationPreview from './components/previews/EducationPreview'
 import PersonalInfoForm from './components/forms/PersonalInfoForm'
 import EducationForm from './components/forms/EducationForm'
 import './styles/App.css'
-import PersonalInfoPreview from './components/Preview/PersonalInfoPreview'
+import PersonalInfoPreview from './components/previews/PersonalInfoPreview'
 
 function App() {
   const [personalInfo, setPersonalInfo] = useState({
@@ -19,7 +20,8 @@ function App() {
   }
   );
 
-  const [education, setEducation] = useState({
+  const [education, setEducation] = useState([
+  {
     school: "",
     location: "",
     degree: "",
@@ -27,9 +29,9 @@ function App() {
     endDate: "",
     gpa: "",
   }
-  );
+  ]);
 
-  const handlePersonalInfoChange = (e) => {
+  const handlePersonalInfoOnChange = (e) => {
     const { name, value } = e.target;
 
     setPersonalInfo({
@@ -37,16 +39,40 @@ function App() {
     });
   }
 
-  const handleEducationOnChange = (e) => {
-    const { name, value } = e.target;
-
-    setEducation({
-      ...education, [name]: value,
+  const handleEducationOnChange = (index, input, value) => {
+    setEducation((prevEducation) => {
+      const newEducation = [...prevEducation];
+      newEducation[index][input] = value;
+      return newEducation;
     });
   }
 
-  const handleEducationOnSubmit = (e) => {
+  const handleEducationOnSubmit = (e, index) => {
     e.preventDefault();
+
+    setEducation((prevEducation) => {
+      const updatedEducation = [...prevEducation];
+      updatedEducation[index] = education[index];
+      return updatedEducation;
+    });
+
+    console.log(education);
+  }
+
+  const handleAddBtnOnClick = () => {
+    setEducation((prevEducation) =>
+    [
+      ...prevEducation,
+      {
+        school: "",
+        location: "",
+        degree: "",
+        startDate: "",
+        endDate: "",
+        gpa: "",
+      }
+    ])
+
   }
 
   return (
@@ -58,28 +84,23 @@ function App() {
       <div id="contents-container">
         <div className="forms-container">
           <PersonalInfoForm
-            value={personalInfo}
-            onChange={handlePersonalInfoChange}
+            props={personalInfo}
+            onChange={handlePersonalInfoOnChange}
           />
 
           <EducationForm
-            value={education}
-            onChange={handleEducationOnChange}
-            onSubmit={handleEducationOnSubmit}
+            educationData={education}
+            handleEducationOnChange={handleEducationOnChange}
+            handleEducationOnSubmit={handleEducationOnSubmit}
+            addBtnOnClick={handleAddBtnOnClick}
           />
 
         </div>
 
         <div className="preview-container">
-            <PersonalInfoPreview
-              firstName={personalInfo.firstName}
-              lastName={personalInfo.lastName}
-              occupation={personalInfo.occupation}
-              email={personalInfo.email}
-              phone={personalInfo.phone}
-              country={personalInfo.country}
-              city={personalInfo.city}
-            />
+            <PersonalInfoPreview data={personalInfo}/>
+
+            <EducationPreview data={education}/>
         </div>
       </div>
     </>
