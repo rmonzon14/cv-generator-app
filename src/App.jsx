@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import Header from './components/Header'
 import EducationPreview from './components/previews/EducationPreview'
 import PersonalInfoForm from './components/forms/PersonalInfoForm'
@@ -31,6 +29,10 @@ function App() {
   }
   ]);
 
+  const [isAddVisible, setIsAddVisible] = useState(false);
+
+  const [activeIndex, setActiveIndex] = useState(0);
+
   const handlePersonalInfoOnChange = (e) => {
     const { name, value } = e.target;
 
@@ -57,6 +59,9 @@ function App() {
     });
 
     console.log(education);
+
+    setIsAddVisible(true);
+    setActiveIndex(education.length);
   }
 
   const handleAddBtnOnClick = () => {
@@ -73,6 +78,12 @@ function App() {
       }
     ])
 
+    setIsAddVisible(!true);
+  }
+
+  const handleEditBtnOnClick = (index) => {
+    setActiveIndex(index)
+    console.log(activeIndex);
   }
 
   return (
@@ -89,10 +100,13 @@ function App() {
           />
 
           <EducationForm
-            educationData={education}
+            data={education}
             handleEducationOnChange={handleEducationOnChange}
             handleEducationOnSubmit={handleEducationOnSubmit}
             addBtnOnClick={handleAddBtnOnClick}
+            isAddVisible={isAddVisible}
+            activeIndex={activeIndex}
+            handleEditButtonOnClick={handleEditBtnOnClick}
           />
 
         </div>
