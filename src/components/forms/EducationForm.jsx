@@ -8,7 +8,7 @@ function EducationForm(
   addBtnOnClick,
   isAddVisible,
   activeIndex,
-  deleteBtnOnClick,
+  handleDeleteBtnOnClick,
   handleEditButtonOnClick,
   }
 ) {
@@ -58,7 +58,7 @@ function EducationForm(
             </div>
 
             <div>
-              <button onClick={deleteBtnOnClick}>Delete</button>
+              <button onClick={() => handleDeleteBtnOnClick(index)}>Delete</button>
               <button onClick={() => handleEditButtonOnClick(index)}>Edit</button>
             </div>
           </div>

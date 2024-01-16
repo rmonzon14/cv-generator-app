@@ -86,6 +86,14 @@ function App() {
     console.log(activeIndex);
   }
 
+  const handleDeleteBtnClick = (index) => {
+    setEducation((prevEducation) => {
+      const newEducation = [...prevEducation];
+      newEducation.splice(index, 1);
+      return newEducation;
+    });
+  }
+
   return (
     <>
       <header className="header-container">
@@ -107,6 +115,7 @@ function App() {
             isAddVisible={isAddVisible}
             activeIndex={activeIndex}
             handleEditButtonOnClick={handleEditBtnOnClick}
+            handleDeleteBtnOnClick={handleDeleteBtnClick}
           />
 
         </div>
