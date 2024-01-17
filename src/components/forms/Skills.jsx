@@ -1,22 +1,38 @@
-import { v4 as uuidv4 } from 'uuid';
+import { useEffect, useState } from 'react';
 
-function SkillsForm(data) {
+function SkillsForm({
+  data,
+  onSubmit
+}) {
+  const [input, setInput] = useState("");
+  const [showSkills, setShowSkills] = useState(false);
+
+  const handleInputOnChange = (e) => {
+    setInput(e.target.value);
+    console.log(input);
+  }
+
+  useEffect(() => {
+    setShowSkills(!!data)
+    console.log("works");
+  }, [data]);
+
   return (
     <>
-      <form id="skills-form">
+      <form id="skills-form" onSubmit={(e) => onSubmit(e, input)}>
         Enter your skill
         <div>
-          <input type="text" name="skill" id="skill" />
-          <button>Add</button>
+          <input type="text" name="skill" id="skill" onChange={handleInputOnChange} />
+          <button type="submit">Add</button>
         </div>
       </form>
 
-      {data.length > 0 && (
+      {showSkills && (
         <div>
           <ul>
-            {data.map((skill, index) => {
-              <li key={skill.id}>{skill}</li>
-            })}
+            {data.map((skill) => (
+              <li key={skill.id}>{skill.name}</li>
+            ))}
           </ul>
         </div>
       )}

@@ -32,7 +32,15 @@ function App() {
   }
   ]);
 
-  const [skills, setSkills] = useState([])
+  const [skills, setSkills] = useState([{
+    school: "",
+    location: "",
+    degree: "",
+    startDate: "",
+    endDate: "",
+    gpa: "",
+    id: uuid()
+  }])
 
   const [isAddVisible, setIsAddVisible] = useState(false);
 
@@ -54,14 +62,6 @@ function App() {
     });
   }
 
-  const handleSkillsOnChange = (index, input, value) => {
-    setSkills((prevSkills) => {
-      const newSkills = [...prevSkills];
-      newSkills[index][input] = value;
-      return newSkills;
-    });
-  }
-
   const handleEducationOnSubmit = (e, index) => {
     e.preventDefault();
 
@@ -75,6 +75,20 @@ function App() {
 
     setIsAddVisible(true);
     setActiveIndex(education.length);
+  }
+
+  const handleAddSkill = (e, value) => {
+    e.preventDefault();
+
+    setSkills((prevSkills) => [
+      ...prevSkills,
+      {
+        name: value,
+        id: uuid()
+      }
+    ]);
+    console.log(skills);
+
   }
 
   const handleAddBtnOnClick = () => {
@@ -131,7 +145,11 @@ function App() {
             handleDeleteBtnOnClick={handleDeleteBtnClick}
           />
 
-          <SkillsForm data={skills} />
+          <SkillsForm
+            data={skills}
+            onSubmit={handleAddSkill}
+
+          />
 
         </div>
 
