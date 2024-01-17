@@ -34,6 +34,8 @@ function App() {
   }
   ]);
 
+  const [objective, setObjective] = useState("")
+
   const [skills, setSkills] = useState([])
 
   const [isAddVisible, setIsAddVisible] = useState(false);
@@ -54,6 +56,10 @@ function App() {
       newEducation[index][input] = value;
       return newEducation;
     });
+  }
+
+  const handleObjectiveOnChange = (e) => {
+    setObjective(e.target.value);
   }
 
   const handleEducationOnSubmit = (e, index) => {
@@ -153,6 +159,10 @@ function App() {
             onClick={handleSkillsBtnOnDelete}
           />
 
+          <ObjectiveForm
+            data={objective}
+            onChange={handleObjectiveOnChange}
+          />
         </div>
 
         <div className="preview-container">
