@@ -3,6 +3,7 @@ import Header from './components/Header'
 import EducationPreview from './components/previews/EducationPreview'
 import PersonalInfoForm from './components/forms/PersonalInfoForm'
 import EducationForm from './components/forms/EducationForm'
+import SkillsForm from './components/forms/Skills'
 import './styles/App.css'
 import PersonalInfoPreview from './components/previews/PersonalInfoPreview'
 
@@ -29,6 +30,8 @@ function App() {
   }
   ]);
 
+  const [skills, setSkills] = useState([])
+
   const [isAddVisible, setIsAddVisible] = useState(false);
 
   const [activeIndex, setActiveIndex] = useState(0);
@@ -46,6 +49,14 @@ function App() {
       const newEducation = [...prevEducation];
       newEducation[index][input] = value;
       return newEducation;
+    });
+  }
+
+  const handleSkillsOnChange = (index, input, value) => {
+    setSkills((prevSkills) => {
+      const newSkills = [...prevSkills];
+      newSkills[index][input] = value;
+      return newSkills;
     });
   }
 
@@ -117,6 +128,8 @@ function App() {
             handleEditButtonOnClick={handleEditBtnOnClick}
             handleDeleteBtnOnClick={handleDeleteBtnClick}
           />
+
+          <SkillsForm data={skills} />
 
         </div>
 

@@ -16,7 +16,7 @@ function EducationForm(
     <>
       {data.map((education, index) => (
         index === activeIndex ? (
-          <form id="personal-info-form" onSubmit={(e) => handleEducationOnSubmit(e, index)} key={index} >
+          <form id="education-form" onSubmit={(e) => handleEducationOnSubmit(e, index)} key={index} >
             Enter your education
             <div>
               <label htmlFor="school">School</label>
