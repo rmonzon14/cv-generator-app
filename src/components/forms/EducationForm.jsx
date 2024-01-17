@@ -2,14 +2,14 @@ import { useState } from "react"
 
 function EducationForm(
   {
-  data,
-  handleEducationOnChange,
-  handleEducationOnSubmit,
-  addBtnOnClick,
-  isAddVisible,
-  activeIndex,
-  handleDeleteBtnOnClick,
-  handleEditButtonOnClick,
+    data,
+    handleEducationOnChange,
+    handleEducationOnSubmit,
+    addBtnOnClick,
+    isAddVisible,
+    activeIndex,
+    handleDeleteBtnOnClick,
+    handleEditButtonOnClick,
   }
 ) {
   return (
