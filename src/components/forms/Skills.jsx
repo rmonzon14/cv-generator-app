@@ -25,7 +25,7 @@ function SkillsForm({
       <form id="skills-form" onSubmit={(e) => onSubmit(e, input)}>
         Enter your skill
         <div>
-          <input type="text" name="skill" id="skill" value={input} onChange={handleInputOnChange} />
+          <input type="text" name="skill" id="skill" value={input} onChange={handleInputOnChange} required />
           <button type="submit">Add</button>
         </div>
       </form>

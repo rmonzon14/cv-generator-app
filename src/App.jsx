@@ -5,6 +5,7 @@ import PersonalInfoForm from './components/forms/PersonalInfoForm'
 import EducationForm from './components/forms/EducationForm'
 import SkillsForm from './components/forms/Skills'
 import PersonalInfoPreview from './components/previews/PersonalInfoPreview'
+import SkillsPreview from './components/previews/SkillsPreview'
 import { v4 as uuid } from 'uuid';
 import './styles/App.css'
 
@@ -155,8 +156,8 @@ function App() {
 
         <div className="preview-container">
             <PersonalInfoPreview data={personalInfo} />
-
             <EducationPreview data={education} />
+            <SkillsPreview data={skills} />
         </div>
       </div>
     </>
