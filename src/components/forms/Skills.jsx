@@ -14,7 +14,6 @@ function SkillsForm({
 
   useEffect(() => {
     setShowSkills(!!data)
-    console.log("works");
   }, [data]);
 
   return (

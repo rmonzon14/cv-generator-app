@@ -32,15 +32,7 @@ function App() {
   }
   ]);
 
-  const [skills, setSkills] = useState([{
-    school: "",
-    location: "",
-    degree: "",
-    startDate: "",
-    endDate: "",
-    gpa: "",
-    id: uuid()
-  }])
+  const [skills, setSkills] = useState([{}])
 
   const [isAddVisible, setIsAddVisible] = useState(false);
 
@@ -87,8 +79,8 @@ function App() {
         id: uuid()
       }
     ]);
-    console.log(skills);
 
+    console.log(skills);
   }
 
   const handleAddBtnOnClick = () => {
@@ -154,9 +146,9 @@ function App() {
         </div>
 
         <div className="preview-container">
-            <PersonalInfoPreview data={personalInfo}/>
+            <PersonalInfoPreview data={personalInfo} />
 
-            <EducationPreview data={education}/>
+            <EducationPreview data={education} />
         </div>
       </div>
     </>
