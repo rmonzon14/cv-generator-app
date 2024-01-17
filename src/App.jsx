@@ -4,8 +4,9 @@ import EducationPreview from './components/previews/EducationPreview'
 import PersonalInfoForm from './components/forms/PersonalInfoForm'
 import EducationForm from './components/forms/EducationForm'
 import SkillsForm from './components/forms/Skills'
-import './styles/App.css'
 import PersonalInfoPreview from './components/previews/PersonalInfoPreview'
+import { v4 as uuid } from 'uuid';
+import './styles/App.css'
 
 function App() {
   const [personalInfo, setPersonalInfo] = useState({
@@ -27,6 +28,7 @@ function App() {
     startDate: "",
     endDate: "",
     gpa: "",
+    id: uuid()
   }
   ]);
 

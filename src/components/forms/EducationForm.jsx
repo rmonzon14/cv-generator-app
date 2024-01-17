@@ -1,4 +1,4 @@
-import { useState } from "react"
+
 
 function EducationForm(
   {
@@ -16,7 +16,7 @@ function EducationForm(
     <>
       {data.map((education, index) => (
         index === activeIndex ? (
-          <form id="education-form" onSubmit={(e) => handleEducationOnSubmit(e, index)} key={index} >
+          <form id="education-form" onSubmit={(e) => handleEducationOnSubmit(e, index)} key={education.id} >
             Enter your education
             <div>
               <label htmlFor="school">School</label>
@@ -51,7 +51,7 @@ function EducationForm(
             <button type="submit">Save</button>
         </form>
         ) : (
-          <div key={index}>
+          <div key={education.id}>
             <div>
               <p>{education.degree}</p>
               <p>{education.startDate} - {education.endDate}</p>

@@ -1,4 +1,4 @@
-
+import { v4 as uuidv4 } from 'uuid';
 
 function SkillsForm(data) {
   return (
@@ -15,7 +15,7 @@ function SkillsForm(data) {
         <div>
           <ul>
             {data.map((skill, index) => {
-              <li key={index}>{skill}</li>
+              <li key={skill.id}>{skill}</li>
             })}
           </ul>
         </div>
