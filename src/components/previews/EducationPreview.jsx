@@ -1,10 +1,9 @@
 import { v4 as uuidv4 } from 'uuid';
 
-function EducationPreview({ data, showPreview }) {
+function EducationPreview({ data }) {
   return (
     <>
-      {showPreview &&
-        data.map((education) => (
+      {data.map((education) => (
         <div key={education.id}>
           <p>{education.school}</p>
         </div>
