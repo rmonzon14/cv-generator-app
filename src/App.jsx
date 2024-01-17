@@ -32,6 +32,8 @@ function App() {
   }
   ]);
 
+  const [showPreview, setShowPreview] = useState(false);
+
   const [skills, setSkills] = useState([{}])
 
   const [isAddVisible, setIsAddVisible] = useState(false);
@@ -52,6 +54,8 @@ function App() {
       newEducation[index][input] = value;
       return newEducation;
     });
+
+    setShowPreview(false);
   }
 
   const handleEducationOnSubmit = (e, index) => {
@@ -67,6 +71,7 @@ function App() {
 
     setIsAddVisible(true);
     setActiveIndex(education.length);
+    setShowPreview(true);
   }
 
   const handleAddSkill = (e, value) => {
@@ -148,7 +153,7 @@ function App() {
         <div className="preview-container">
             <PersonalInfoPreview data={personalInfo} />
 
-            <EducationPreview data={education} />
+            <EducationPreview data={education} showPreview={showPreview} />
         </div>
       </div>
     </>
