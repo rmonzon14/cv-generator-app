@@ -113,6 +113,14 @@ function App() {
     });
   }
 
+  const handleSkillsBtnOnDelete = (index) => {
+    setSkills((prevSkills) => {
+      const newSkills = [...prevSkills];
+      newSkills.splice(index, 1);
+      return newSkills;
+    });
+  }
+
   return (
     <>
       <header className="header-container">
@@ -140,7 +148,7 @@ function App() {
           <SkillsForm
             data={skills}
             onSubmit={handleAddSkill}
-
+            onClick={handleSkillsBtnOnDelete}
           />
 
         </div>

@@ -2,21 +2,22 @@ import { useEffect, useState } from 'react';
 
 function SkillsForm({
   data,
-  onSubmit
+  onSubmit,
+  onClick
 }) {
   const [input, setInput] = useState("");
   const [showSkills, setShowSkills] = useState(false);
 
   const handleInputOnChange = (e) => {
     setInput(e.target.value);
-    console.log(input);
   }
 
   useEffect(() => {
     if (data.length > 0) {
       setShowSkills(!!data)
+      setInput("");
     }
-    console.log(data);
+    console.log(input);
   }, [data]);
 
   return (
@@ -24,7 +25,7 @@ function SkillsForm({
       <form id="skills-form" onSubmit={(e) => onSubmit(e, input)}>
         Enter your skill
         <div>
-          <input type="text" name="skill" id="skill" onChange={handleInputOnChange} />
+          <input type="text" name="skill" id="skill" value={input} onChange={handleInputOnChange} />
           <button type="submit">Add</button>
         </div>
       </form>
@@ -33,7 +34,10 @@ function SkillsForm({
         <div>
           <ul>
             {data.map((skill) => (
-              <li key={skill.id}>{skill.name}</li>
+              <li key={skill.id}>
+                {skill.name}
+                <button onClick={onClick}>Delete</button>
+              </li>
             ))}
           </ul>
         </div>
