@@ -13,7 +13,10 @@ function SkillsForm({
   }
 
   useEffect(() => {
-    setShowSkills(!!data)
+    if (data.length > 0) {
+      setShowSkills(!!data)
+    }
+    console.log(data);
   }, [data]);
 
   return (

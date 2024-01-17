@@ -32,7 +32,7 @@ function App() {
   }
   ]);
 
-  const [skills, setSkills] = useState([{}])
+  const [skills, setSkills] = useState([])
 
   const [isAddVisible, setIsAddVisible] = useState(false);
 

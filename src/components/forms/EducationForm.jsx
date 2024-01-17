@@ -20,7 +20,7 @@ function EducationForm(
             Enter your education
             <div>
               <label htmlFor="school">School</label>
-                <input type="text" name="school" id="school" value={education.school} onChange={(e) => handleEducationOnChange(index, "school", e.target.value)} required />
+              <input type="text" name="school" id="school" value={education.school} onChange={(e) => handleEducationOnChange(index, "school", e.target.value)} required />
             </div>
 
             <div>
