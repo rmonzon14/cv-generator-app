@@ -84,29 +84,37 @@ function App() {
     });
   }
 
-  const handleEducationOnSubmit = (e, index) => {
+  const handleOnSubmit = (formId, e, index) => {
     e.preventDefault();
 
-    setEducation((prevEducation) => {
-      const updatedEducation = [...prevEducation];
-      updatedEducation[index] = education[index];
-      return updatedEducation;
-    });
+    switch(formId) {
+      case "education-form":
+        setEducation((prevEducation) => {
+          const updatedEducation = [...prevEducation];
+          updatedEducation[index] = education[index];
+          return updatedEducation;
+        });
 
-    console.log(education);
+        console.log("education-submitted");
 
-    setIsAddVisible(true);
-    setActiveIndex(education.length);
-  }
+        setIsAddVisible(true);
+        setActiveIndex(education.length);
 
-  const handleExperienceOnSubmit = (e, index) => {
-    e.preventDefault();
+        break;
+      case "experience-form":
+        setExperience((prevExperience) => {
+          const newExperience = [...prevExperience];
+          newExperience[index] = experience[index];
+          return newExperience;
+        });
 
-    setExperience((prevExperience) => {
-      const newExperience = [...prevExperience];
-      newExperience[index] = experience[index];
-      return newExperience;
-    });
+        console.log("experience-submitted");
+
+        break;
+      default:
+        console.log("Default form was submitted");
+
+    }
   }
 
   const handleAddSkill = (e, value) => {
@@ -177,7 +185,7 @@ function App() {
           <EducationForm
             data={education}
             handleEducationOnChange={handleEducationOnChange}
-            handleEducationOnSubmit={handleEducationOnSubmit}
+            handleEducationOnSubmit={handleOnSubmit}
             addBtnOnClick={handleAddBtnOnClick}
             isAddVisible={isAddVisible}
             activeIndex={activeIndex}
@@ -199,7 +207,7 @@ function App() {
           <ExperienceForm
             data={experience}
             experienceOnChange={handleExperienceOnChange}
-            experienceOnSubmit={handleExperienceOnSubmit}
+            experienceOnSubmit={handleOnSubmit}
           />
         </div>
 
