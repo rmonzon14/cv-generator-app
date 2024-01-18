@@ -8,6 +8,7 @@ import PersonalInfoPreview from './components/previews/PersonalInfoPreview'
 import SkillsPreview from './components/previews/SkillsPreview'
 import ObjectiveForm from './components/forms/ObjectiveForm'
 import ObjectivePreview from './components/previews/ObjectivePreview'
+import ExperienceForm from './components/forms/ExperienceForm'
 import { v4 as uuid } from 'uuid';
 import './styles/App.css'
 
@@ -39,6 +40,17 @@ function App() {
 
   const [skills, setSkills] = useState([])
 
+  const [experience, setExperience] = useState([
+  {
+    startData: "",
+    endDate: "",
+    jobTitle: "",
+    companyName: "",
+    location: "",
+    id: uuid()
+  }
+  ]);
+
   const [isAddVisible, setIsAddVisible] = useState(false);
 
   const [activeIndex, setActiveIndex] = useState(0);
@@ -61,6 +73,14 @@ function App() {
 
   const handleObjectiveOnChange = (e) => {
     setObjective(e.target.value);
+  }
+
+  const handleExperienceOnChange = (index, input, value) => {
+    setExperience((prevExperience) => {
+      const newExperience = [...prevExperience];
+      newExperience[index][input] = value;
+      return newExperience;
+    });
   }
 
   const handleEducationOnSubmit = (e, index) => {
@@ -163,6 +183,11 @@ function App() {
           <ObjectiveForm
             data={objective}
             onChange={handleObjectiveOnChange}
+          />
+
+          <ExperienceForm
+            data={experience}
+            experienceOnChange={handleExperienceOnChange}
           />
         </div>
 
