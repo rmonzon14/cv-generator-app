@@ -4,7 +4,7 @@ function ObjectiveForm({ data, onChange }) {
        <form id="objective-form" >
         Enter your objective
         <div>
-          <input type="text" name="objective" id="objective" value={data} onChange={(e) => onChange(e)} required />
+          <textarea cols="40" rows="5" name="objective" id="objective" value={data} onChange={(e) => onChange(e)} ></textarea>
         </div>
       </form>
     </>
