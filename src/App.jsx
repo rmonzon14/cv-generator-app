@@ -7,6 +7,7 @@ import SkillsForm from './components/forms/Skills'
 import PersonalInfoPreview from './components/previews/PersonalInfoPreview'
 import SkillsPreview from './components/previews/SkillsPreview'
 import ObjectiveForm from './components/forms/ObjectiveForm'
+import ObjectivePreview from './components/previews/ObjectivePreview'
 import { v4 as uuid } from 'uuid';
 import './styles/App.css'
 
@@ -169,6 +170,7 @@ function App() {
             <PersonalInfoPreview data={personalInfo} />
             <EducationPreview data={education} />
             <SkillsPreview data={skills} />
+            <ObjectivePreview data={objective} />
         </div>
       </div>
     </>
