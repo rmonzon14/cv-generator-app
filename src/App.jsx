@@ -49,7 +49,7 @@ function App() {
     companyName: "",
     location: "",
     id: uuid()
-  }
+  },
   ]);
 
   const [isAddVisible, setIsAddVisible] = useState(false);
@@ -108,7 +108,7 @@ function App() {
           return newExperience;
         });
 
-        console.log("experience-submitted");
+        console.log(experience);
 
         break;
       default:
@@ -168,6 +168,12 @@ function App() {
       return newSkills;
     });
   }
+
+  // const displayAddBtn = (formId) => {
+  //   if () {
+
+  //   }
+  // }
 
   return (
     <>
