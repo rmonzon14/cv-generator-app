@@ -88,7 +88,7 @@ function App() {
     e.preventDefault();
 
     switch(formId) {
-      case "education-form":
+      case `education-form-${index}`:
         setEducation((prevEducation) => {
           const updatedEducation = [...prevEducation];
           updatedEducation[index] = education[index];
@@ -101,14 +101,14 @@ function App() {
         setActiveIndex(education.length);
 
         break;
-      case "experience-form":
+      case `experience-form-${index}`:
         setExperience((prevExperience) => {
           const newExperience = [...prevExperience];
           newExperience[index] = experience[index];
           return newExperience;
         });
 
-        console.log(experience);
+        console.log("experience-submitted");
 
         break;
       default:

@@ -9,7 +9,7 @@ function ExperienceForm(
   return (
     <>
       {data.map((experience, index) => (
-        <form id={`experience-form-${index}`} key={experience.id} onSubmit={(e) => experienceOnSubmit("experience-form", e, index)} >
+        <form id={`experience-form-${index}`} key={experience.id} onSubmit={(e) => experienceOnSubmit(`experience-form-${index}`, e, index)} >
           Enter your experience
           <div>
             <label htmlFor="startDate">Start</label>
