@@ -52,7 +52,11 @@ function App() {
   },
   ]);
 
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState({
+    education: 0,
+    experience: 0
+  });
+
   const [isAddVisible, setIsAddVisible] = useState(false);
 
   const handlePersonalInfoOnChange = (e) => {
@@ -96,7 +100,11 @@ function App() {
 
 
         setIsAddVisible(true);
-        setActiveIndex(education.length);
+
+        setActiveIndex(prevActiveIndex => ({
+          ...prevActiveIndex,
+          education: education.length
+        }));
 
         break;
       case `experience-form-${index}`:
@@ -140,18 +148,42 @@ function App() {
         startDate: "",
         endDate: "",
         gpa: "",
+        id: uuid()
       }
     ])
     console.log(education.length);
+    console.log(education);
     setIsAddVisible(false);
   }
 
   const handleEditBtnOnClick = (index) => {
-    setActiveIndex(index)
-    console.log(activeIndex);
+    setActiveIndex(prevActiveIndex => ({
+      ...prevActiveIndex,
+      education: index
+    }));
   }
 
   const handleDeleteBtnClick = (index) => {
+    if (education.length === 1) {
+      setEducation((prevEducation) => {
+        const newEducation = [...prevEducation];
+        for (let key in newEducation[0]) {
+          newEducation[0][key] = "";
+        }
+
+        return newEducation;
+      });
+
+      setActiveIndex(prevActiveIndex => ({
+        ...prevActiveIndex,
+        education: 0
+      }));
+
+      setIsAddVisible(false);
+
+      return;
+    }
+
     setEducation((prevEducation) => {
       const newEducation = [...prevEducation];
       newEducation.splice(index, 1);
@@ -206,6 +238,7 @@ function App() {
             data={experience}
             experienceOnChange={handleExperienceOnChange}
             experienceOnSubmit={handleOnSubmit}
+            activeIndex={activeIndex}
           />
         </div>
 

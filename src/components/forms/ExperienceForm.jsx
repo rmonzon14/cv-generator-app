@@ -4,12 +4,14 @@ function ExperienceForm(
     experienceOnChange,
     experienceOnSubmit,
     isAddVisible,
+    activeIndex,
   }
   ) {
   return (
     <>
       {data.map((experience, index) => (
-        <form id={`experience-form-${index}`} key={experience.id} onSubmit={(e) => experienceOnSubmit(`experience-form-${index}`, e, index)} >
+        index === activeIndex.experience ? (
+          <form id={`experience-form-${index}`} key={experience.id} onSubmit={(e) => experienceOnSubmit(`experience-form-${index}`, e, index)} >
           Enter your experience
           <div>
             <label htmlFor="startDate">Start</label>
@@ -38,6 +40,19 @@ function ExperienceForm(
 
           <button type="submit">Save</button>
         </form>
+        ) : (
+          <div key={experience.id}>
+            <div>
+              <p>{experience.jobTitle}</p>
+              <p>{experience.startDate} - {experience.endDate}</p>
+            </div>
+
+            <div>
+              <button onClick={() => handleDeleteBtnOnClick(index)}>Delete</button>
+              <button onClick={() => handleEditButtonOnClick(index)}>Edit</button>
+            </div>
+          </div>
+        )
       ))}
       {isAddVisible && (
         <button>Add More</button>
