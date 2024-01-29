@@ -1,22 +1,20 @@
-
-
 function EducationForm(
   {
     data,
     handleEducationOnChange,
     handleEducationOnSubmit,
-    addBtnOnClick,
-    isAddVisible,
     activeIndex,
     handleDeleteBtnOnClick,
     handleEditButtonOnClick,
+    showAddBtn,
+    addBtnOnClick,
   }
 ) {
   return (
     <>
       {data.map((education, index) => (
         index === activeIndex ? (
-          <form id={`education-form-${index}`} onSubmit={(e) => handleEducationOnSubmit(`education-form-${index}`, e, index)} key={education.id} >
+          <form key={education.id} id={`education-form-${index}`} onSubmit={(e) => handleEducationOnSubmit(`education-form-${index}`, e, index)} key={education.id} >
             Enter your education
             <div>
               <label htmlFor="school">School</label>
@@ -65,7 +63,7 @@ function EducationForm(
         )
       ))}
 
-      {isAddVisible && (
+      {showAddBtn && (
         <button onClick={addBtnOnClick}>Add More</button>
       )}
 

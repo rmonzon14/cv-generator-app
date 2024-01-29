@@ -52,9 +52,8 @@ function App() {
   },
   ]);
 
-  const [isAddVisible, setIsAddVisible] = useState(false);
-
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isAddVisible, setIsAddVisible] = useState(false);
 
   const handlePersonalInfoOnChange = (e) => {
     const { name, value } = e.target;
@@ -95,7 +94,6 @@ function App() {
           return updatedEducation;
         });
 
-        console.log("education-submitted");
 
         setIsAddVisible(true);
         setActiveIndex(education.length);
@@ -144,8 +142,8 @@ function App() {
         gpa: "",
       }
     ])
-
-    setIsAddVisible(!true);
+    console.log(education.length);
+    setIsAddVisible(false);
   }
 
   const handleEditBtnOnClick = (index) => {
@@ -169,12 +167,6 @@ function App() {
     });
   }
 
-  // const displayAddBtn = (formId) => {
-  //   if () {
-
-  //   }
-  // }
-
   return (
     <>
       <header className="header-container">
@@ -193,10 +185,10 @@ function App() {
             handleEducationOnChange={handleEducationOnChange}
             handleEducationOnSubmit={handleOnSubmit}
             addBtnOnClick={handleAddBtnOnClick}
-            isAddVisible={isAddVisible}
             activeIndex={activeIndex}
             handleEditButtonOnClick={handleEditBtnOnClick}
             handleDeleteBtnOnClick={handleDeleteBtnClick}
+            showAddBtn={isAddVisible}
           />
 
           <SkillsForm

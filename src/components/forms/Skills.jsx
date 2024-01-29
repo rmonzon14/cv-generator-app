@@ -17,7 +17,6 @@ function SkillsForm({
       setShowSkills(!!data)
       setInput("");
     }
-    console.log(input);
   }, [data]);
 
   return (
