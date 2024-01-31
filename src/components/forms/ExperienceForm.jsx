@@ -55,8 +55,8 @@ function ExperienceForm(
         )
       ))}
 
-      {showAddBtn && (
-        <button>Add More</button>
+      {showAddBtn.experience && (
+        <button id="experience-add-btn" >Add More</button>
       )}
     </>
   )

@@ -63,8 +63,8 @@ function EducationForm(
         )
       ))}
 
-      {showAddBtn && (
-        <button onClick={addBtnOnClick}>Add More</button>
+      {showAddBtn.education && (
+        <button id="education-add-btn" onClick={addBtnOnClick}>Add More</button>
       )}
 
     </>
