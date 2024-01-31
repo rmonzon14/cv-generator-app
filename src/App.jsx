@@ -155,8 +155,7 @@ function App() {
 
     switch (formId) {
       case "education-add-btn":
-        setEducation((prevEducation) =>
-        [
+        setEducation((prevEducation) => [
           ...prevEducation,
           {
             school: "",
