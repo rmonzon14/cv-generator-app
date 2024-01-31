@@ -5,6 +5,7 @@ function ExperienceForm(
     experienceOnSubmit,
     showAddBtn,
     activeIndex,
+    addBtnOnClick,
   }
   ) {
   return (
@@ -12,7 +13,7 @@ function ExperienceForm(
       {data.map((experience, index) => (
         index === activeIndex.experience ? (
           <form id={`experience-form-${index}`} key={experience.id} onSubmit={(e) => experienceOnSubmit(`experience-form-${index}`, e, index)} >
-          Enter your experience
+            Enter your experience
           <div>
             <label htmlFor="startDate">Start</label>
             <input type="date" name="startDate" id="startDate" value={experience.startDate} onChange={(e) => experienceOnChange(index, "startDate", e.target.value)} />
@@ -56,7 +57,7 @@ function ExperienceForm(
       ))}
 
       {showAddBtn.experience && (
-        <button id="experience-add-btn" >Add More</button>
+        <button id="experience-add-btn" onClick={() => addBtnOnClick("experience-add-btn")}>Add More</button>
       )}
     </>
   )

@@ -151,20 +151,41 @@ function App() {
     console.log(skills);
   }
 
-  const handleAddBtnOnClick = () => {
-    setEducation((prevEducation) =>
-    [
-      ...prevEducation,
-      {
-        school: "",
-        location: "",
-        degree: "",
-        startDate: "",
-        endDate: "",
-        gpa: "",
-        id: uuid()
-      }
-    ])
+  const handleAddBtnOnClick = (formId) => {
+
+    switch (formId) {
+      case "education-add-btn":
+        setEducation((prevEducation) =>
+        [
+          ...prevEducation,
+          {
+            school: "",
+            location: "",
+            degree: "",
+            startDate: "",
+            endDate: "",
+            gpa: "",
+            id: uuid()
+          }
+        ])
+
+        break;
+      case "experience-add-btn":
+        setExperience((prevExperience) => [
+          ...prevExperience,
+          {
+            startDate: "",
+            endDate: "",
+            jobTitle: "",
+            companyName: "",
+            location: "",
+            id: uuid()
+          }
+        ])
+
+        break;
+    }
+
     console.log(education.length);
     console.log(education);
   }
@@ -256,6 +277,7 @@ function App() {
             experienceOnSubmit={handleOnSubmit}
             activeIndex={activeIndex}
             showAddBtn={isAddVisible}
+            addBtnOnClick={handleAddBtnOnClick}
           />
         </div>
 
