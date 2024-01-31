@@ -3,7 +3,7 @@ function ExperienceForm(
     data,
     experienceOnChange,
     experienceOnSubmit,
-    isAddVisible,
+    showAddBtn,
     activeIndex,
   }
   ) {
@@ -54,7 +54,8 @@ function ExperienceForm(
           </div>
         )
       ))}
-      {isAddVisible && (
+
+      {showAddBtn && (
         <button>Add More</button>
       )}
     </>

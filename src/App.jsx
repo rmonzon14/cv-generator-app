@@ -57,7 +57,10 @@ function App() {
     experience: 0
   });
 
-  const [isAddVisible, setIsAddVisible] = useState(false);
+  const [isAddVisible, setIsAddVisible] = useState({
+    education: false,
+    experience: false
+  });
 
   const handlePersonalInfoOnChange = (e) => {
     const { name, value } = e.target;
@@ -98,8 +101,10 @@ function App() {
           return updatedEducation;
         });
 
-
-        setIsAddVisible(true);
+        setIsAddVisible(prevIsAddVisible => ({
+          ...prevIsAddVisible,
+          education: true
+        }));
 
         setActiveIndex(prevActiveIndex => ({
           ...prevActiveIndex,
@@ -114,7 +119,16 @@ function App() {
           return newExperience;
         });
 
-        console.log("experience-submitted");
+
+        setIsAddVisible(prevIsAddVisible => ({
+          ...prevIsAddVisible,
+          experience: true
+        }));
+
+        setActiveIndex(prevActiveIndex => ({
+          ...prevActiveIndex,
+          experience: experience.length
+        }));
 
         break;
       default:
@@ -153,7 +167,6 @@ function App() {
     ])
     console.log(education.length);
     console.log(education);
-    setIsAddVisible(false);
   }
 
   const handleEditBtnOnClick = (index) => {
@@ -179,7 +192,10 @@ function App() {
         education: 0
       }));
 
-      setIsAddVisible(false);
+      setIsAddVisible(prevIsAddVisible => ({
+        ...prevIsAddVisible,
+        experience: true
+      }));
 
       return;
     }
@@ -239,6 +255,7 @@ function App() {
             experienceOnChange={handleExperienceOnChange}
             experienceOnSubmit={handleOnSubmit}
             activeIndex={activeIndex}
+            showAddBtn={isAddVisible}
           />
         </div>
 
