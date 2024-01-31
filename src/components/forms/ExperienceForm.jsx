@@ -8,6 +8,7 @@ function ExperienceForm(
     addBtnOnClick,
   }
   ) {
+
   return (
     <>
       {data.map((experience, index) => (
@@ -37,6 +38,27 @@ function ExperienceForm(
           <div>
             <label htmlFor="location">Location</label>
             <input type="text" name="location" id="location" value={experience.location} onChange={(e) => experienceOnChange(index, "location", e.target.value)} />
+          </div>
+
+          <div>
+            <p>Responsibilities</p>
+            <div>
+              <div>
+                <input name="responsibility-1" id="responsibility-1" placeholder="Describe your responsibility"></input>
+              </div>
+              <div>
+                <input name="responsibility-2" id="responsibility-2" placeholder="Describe your responsibility"></input>
+              </div>
+              <div>
+                <input name="responsibility-3" id="responsibility-3" placeholder="Describe your responsibility"></input>
+              </div>
+              <div>
+                <input name="responsibility-4" id="responsibility-4" placeholder="Describe your responsibility"></input>
+              </div>
+              <div>
+                <input name="responsibility-5" id="responsibility-5" placeholder="Describe your responsibility"></input>
+              </div>
+            </div>
           </div>
 
           <button type="submit">Save</button>
