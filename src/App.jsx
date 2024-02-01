@@ -48,7 +48,10 @@ function App() {
     jobTitle: "",
     companyName: "",
     location: "",
-    responsibilities: ["Test 1", "Test 2", "Test 3", "Test 4", "Test 5"],
+    responsibilities: [{
+      desc: "",
+      id: uuid()
+    }],
     id: uuid()
   },
   ]);
@@ -88,7 +91,11 @@ function App() {
       const newExperience = [...prevExperience];
 
       if (input === "responsibilities") {
-        newExperience[index][input][responsibilityIndex] = value;
+        const responsibilities = newExperience[index][input][responsibilityIndex];
+        for (let key in responsibilities) {
+          responsibilities["desc"] = value;
+          console.log(responsibilities["desc"]);
+        }
       } else {
         newExperience[index][input] = value;
       }

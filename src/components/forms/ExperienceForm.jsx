@@ -44,8 +44,8 @@ function ExperienceForm(
             <p>Responsibilities</p>
             <div>
               {experience.responsibilities.map((responsibility, responsibilityIndex) => (
-                <div>
-                  <input name={`responsibility-${index}`} id={`responsibility-${index}`} value={responsibility} placeholder="Describe your responsibility" onChange={(e) => experienceOnChange(index, "responsibilities", e.target.value, responsibilityIndex)}></input>
+                <div key={responsibility.id}>
+                  <input name={`responsibility-${index}`} id={`responsibility-${index}`} value={responsibility.desc} placeholder="Describe your responsibility" onChange={(e) => experienceOnChange(index, "responsibilities", e.target.value, responsibilityIndex)}></input>
                 </div>
               ))}
             </div>
