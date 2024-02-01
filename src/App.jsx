@@ -48,6 +48,7 @@ function App() {
     jobTitle: "",
     companyName: "",
     location: "",
+    responsibilities: ["Test 1", "Test 2", "Test 3", "Test 4", "Test 5"],
     id: uuid()
   },
   ]);
@@ -82,10 +83,15 @@ function App() {
     setObjective(e.target.value);
   }
 
-  const handleExperienceOnChange = (index, input, value) => {
+  const handleExperienceOnChange = (index, input, value, responsibilityIndex) => {
     setExperience((prevExperience) => {
       const newExperience = [...prevExperience];
-      newExperience[index][input] = value;
+
+      if (input === "responsibilities") {
+        newExperience[index][input][responsibilityIndex] = value;
+      } else {
+        newExperience[index][input] = value;
+      }
       return newExperience;
     });
   }
